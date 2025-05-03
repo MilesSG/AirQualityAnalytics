@@ -28,10 +28,12 @@
 ## 🚀 快速开始
 
 ### 环境要求
+
 - Node.js 16+
 - npm 7+ 或 yarn 1.22+
 
 ### 安装依赖
+
 ```bash
 # 使用 npm
 npm install
@@ -41,6 +43,7 @@ yarn
 ```
 
 ### 本地开发
+
 ```bash
 # 启动开发服务器
 npm run dev
@@ -50,6 +53,7 @@ yarn dev
 ```
 
 ### 打包构建
+
 ```bash
 # 生产环境构建
 npm run build
@@ -60,11 +64,13 @@ yarn build
 
 ## 📸 项目截图
 
-![image-20250503171909418](C:\Users\12906\AppData\Roaming\Typora\typora-user-images\image-20250503171909418.png)
+![image](https://github.com/user-attachments/assets/a7a3aa5d-6188-4a69-9ead-2f67d1761d00)
 
-![image-20250503171935021](C:\Users\12906\AppData\Roaming\Typora\typora-user-images\image-20250503171935021.png)
 
-![image-20250503171950359](C:\Users\12906\AppData\Roaming\Typora\typora-user-images\image-20250503171950359.png)
+![image](https://github.com/user-attachments/assets/c270600c-c15e-43cc-ac3c-84476eaa5f50)
+
+
+![image](https://github.com/user-attachments/assets/72f6b4ce-30bb-4f92-ac0b-fc2b0a526171)
 
 ## 🧩 项目结构
 
