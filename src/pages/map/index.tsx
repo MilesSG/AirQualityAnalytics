@@ -163,7 +163,13 @@ const MapVisualization: React.FC = () => {
     return {
       title: {
         text: `各监测站点${displayName}数值`,
-        left: 'center'
+        left: 'center',
+        top: 20,
+        textStyle: {
+          fontSize: 16,
+          fontWeight: 'bold',
+          lineHeight: 30
+        }
       },
       tooltip: {
         trigger: 'item',

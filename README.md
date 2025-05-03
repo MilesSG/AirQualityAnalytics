@@ -60,7 +60,11 @@ yarn build
 
 ## 📸 项目截图
 
-*(待添加项目截图)*
+![image-20250503171909418](C:\Users\12906\AppData\Roaming\Typora\typora-user-images\image-20250503171909418.png)
+
+![image-20250503171935021](C:\Users\12906\AppData\Roaming\Typora\typora-user-images\image-20250503171935021.png)
+
+![image-20250503171950359](C:\Users\12906\AppData\Roaming\Typora\typora-user-images\image-20250503171950359.png)
 
 ## 🧩 项目结构
 
@@ -80,14 +84,3 @@ air-quality-analytics/
 └── index.html         # HTML 入口文件
 ```
 
-## 📝 许可证
-
-本项目采用 [MIT 许可证](LICENSE)。
-
-## 👨‍💻 贡献者
-
-- [@MilesSG](https://github.com/MilesSG) - 项目作者
-
----
-
-🌈 欢迎提出建议和问题！ 
