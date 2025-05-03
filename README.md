@@ -28,10 +28,12 @@
 ## 🚀 快速开始
 
 ### 环境要求
+
 - Node.js 16+
 - npm 7+ 或 yarn 1.22+
 
 ### 安装依赖
+
 ```bash
 # 使用 npm
 npm install
@@ -41,6 +43,7 @@ yarn
 ```
 
 ### 本地开发
+
 ```bash
 # 启动开发服务器
 npm run dev
@@ -50,6 +53,7 @@ yarn dev
 ```
 
 ### 打包构建
+
 ```bash
 # 生产环境构建
 npm run build
@@ -60,7 +64,14 @@ yarn build
 
 ## 📸 项目截图
 
-*(待添加项目截图)*
+![image](https://github.com/user-attachments/assets/a7a3aa5d-6188-4a69-9ead-2f67d1761d00)
+
+
+![image](https://github.com/user-attachments/assets/c270600c-c15e-43cc-ac3c-84476eaa5f50)
+
+
+![image](https://github.com/user-attachments/assets/72f6b4ce-30bb-4f92-ac0b-fc2b0a526171)
+
 
 ## 🧩 项目结构
 
@@ -80,14 +91,3 @@ air-quality-analytics/
 └── index.html         # HTML 入口文件
 ```
 
-## 📝 许可证
-
-本项目采用 [MIT 许可证](LICENSE)。
-
-## 👨‍💻 贡献者
-
-- [@MilesSG](https://github.com/MilesSG) - 项目作者
-
----
-
-🌈 欢迎提出建议和问题！ 
