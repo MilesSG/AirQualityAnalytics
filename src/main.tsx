@@ -8,6 +8,8 @@ import Dashboard from './pages/dashboard'
 import MapVisualization from './pages/map'
 import HistoricalAnalysis from './pages/historical'
 import HealthAssessment from './pages/health'
+import DataAnalysis from './pages/analysis'
+import BigScreen from './pages/bigscreen'
 
 import './style.css'
 
@@ -22,6 +24,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path="map" element={<MapVisualization />} />
             <Route path="historical" element={<HistoricalAnalysis />} />
             <Route path="health" element={<HealthAssessment />} />
+            <Route path="analysis" element={<DataAnalysis />} />
+            <Route path="bigscreen" element={<BigScreen />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Route>
         </Routes>

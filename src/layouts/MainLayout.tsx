@@ -10,6 +10,10 @@ import {
   SettingOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  FundOutlined,
+  DesktopOutlined,
+  LineChartOutlined,
+  BarChartOutlined,
 } from '@ant-design/icons';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { generateAlerts } from '../mock/airQualityData';
@@ -43,6 +47,8 @@ function MainLayout({ children }: MainLayoutProps) {
     if (path === '/map') return '地图可视化';
     if (path === '/historical') return '历史数据分析';
     if (path === '/health') return '健康影响评估';
+    if (path === '/analysis') return '数据分析';
+    if (path === '/bigscreen') return '可视化大屏';
     return '空气质量分析';
   };
 
@@ -59,6 +65,10 @@ function MainLayout({ children }: MainLayoutProps) {
       items.push({ title: '历史数据分析', href: '/historical' });
     } else if (path === '/health') {
       items.push({ title: '健康影响评估', href: '/health' });
+    } else if (path === '/analysis') {
+      items.push({ title: '数据分析', href: '/analysis' });
+    } else if (path === '/bigscreen') {
+      items.push({ title: '可视化大屏', href: '/bigscreen' });
     }
     
     return items;
@@ -67,16 +77,35 @@ function MainLayout({ children }: MainLayoutProps) {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       {/* 左侧菜单 */}
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div style={{ height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Title level={5} style={{ margin: 0, color: 'white' }}>
+      <Sider 
+        trigger={null} 
+        collapsible 
+        collapsed={collapsed}
+        theme="light"
+        style={{ 
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+          zIndex: 10
+        }}
+      >
+        <div style={{ 
+          height: 64, 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          borderBottom: '1px solid #f0f0f0'
+        }}>
+          <Title level={5} style={{ margin: 0, color: '#000', fontWeight: 500 }}>
             {collapsed ? 'AQA' : '空气质量分析系统'}
           </Title>
         </div>
         <Menu
-          theme="dark"
+          theme="light"
           mode="inline"
           defaultSelectedKeys={[location.pathname.replace('/', '') || 'dashboard']}
+          style={{
+            borderRight: 'none',
+            fontWeight: 500
+          }}
           items={[
             {
               key: 'dashboard',
@@ -87,6 +116,16 @@ function MainLayout({ children }: MainLayoutProps) {
               key: 'map',
               icon: <EnvironmentOutlined />,
               label: <Link to="/map">地图可视化</Link>,
+            },
+            {
+              key: 'analysis',
+              icon: <LineChartOutlined />,
+              label: <Link to="/analysis">数据分析</Link>,
+            },
+            {
+              key: 'bigscreen',
+              icon: <DesktopOutlined />,
+              label: <Link to="/bigscreen">可视化大屏</Link>,
             },
             {
               key: 'historical',
@@ -104,12 +143,23 @@ function MainLayout({ children }: MainLayoutProps) {
       
       <Layout>
         {/* 顶部导航栏 */}
-        <Header style={{ padding: 0, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Header style={{ 
+          padding: 0, 
+          background: 'rgba(255, 255, 255, 0.8)', 
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)',
+          position: 'sticky',
+          top: 0,
+          zIndex: 9,
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between' 
+        }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: () => setCollapsed(!collapsed),
-              style: { fontSize: '18px', padding: '0 24px', cursor: 'pointer' }
+              style: { fontSize: '18px', padding: '0 24px', cursor: 'pointer', color: '#333' }
             })}
             <Breadcrumb items={getBreadcrumbItems()} />
           </div>
@@ -125,7 +175,7 @@ function MainLayout({ children }: MainLayoutProps) {
               placement="bottomRight"
             >
               <Badge count={alerts.length} overflowCount={99}>
-                <BellOutlined style={{ fontSize: '18px', cursor: 'pointer' }} />
+                <BellOutlined style={{ fontSize: '18px', cursor: 'pointer', color: '#333' }} />
               </Badge>
             </Dropdown>
             
@@ -139,10 +189,10 @@ function MainLayout({ children }: MainLayoutProps) {
               }}
               placement="bottomRight"
             >
-              <Avatar icon={<UserOutlined />} />
+              <Avatar icon={<UserOutlined />} style={{ backgroundColor: '#1677ff' }} />
             </Dropdown>
             
-            <SettingOutlined style={{ fontSize: '18px', cursor: 'pointer' }} />
+            <SettingOutlined style={{ fontSize: '18px', cursor: 'pointer', color: '#333' }} />
           </Space>
         </Header>
         
@@ -154,6 +204,8 @@ function MainLayout({ children }: MainLayoutProps) {
             background: '#fff',
             minHeight: 280,
             overflow: 'auto',
+            borderRadius: '12px',
+            boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
           }}
         >
           <Outlet />
@@ -161,7 +213,13 @@ function MainLayout({ children }: MainLayoutProps) {
         </Content>
         
         {/* 底部状态栏 */}
-        <Footer style={{ textAlign: 'center', padding: '12px 50px' }}>
+        <Footer style={{ 
+          textAlign: 'center', 
+          padding: '12px 50px',
+          background: '#f9f9f9',
+          color: '#666',
+          fontSize: '13px'
+        }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div>空气质量分析系统 ©2023 Created by Your Name</div>
             <div>最后更新: {currentTime}</div>

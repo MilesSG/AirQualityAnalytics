@@ -4,7 +4,11 @@ import {
   Alert, 
   Forecast, 
   HealthImpact,
-  ApiResponse 
+  ApiResponse,
+  ClusterAnalysis,
+  CorrelationAnalysis,
+  SourceAttributionAnalysis,
+  TrendAnalysis
 } from '../types';
 
 import { 
@@ -14,6 +18,14 @@ import {
   generateForecastData, 
   generateAlerts 
 } from '../mock/airQualityData';
+
+import {
+  generateClusterAnalysis,
+  generateCorrelationAnalysis,
+  generateSourceAttribution,
+  generateTrendAnalysis,
+  generateAQIPrediction
+} from '../mock/analysisData';
 
 // 模拟API延迟
 function delay(ms: number) {
@@ -173,4 +185,55 @@ export async function getHealthImpacts(
   );
   
   return createResponse(impacts);
+}
+
+// 获取聚类分析结果
+export async function getClusterAnalysis(
+  stationIds: string[],
+  startDate: string,
+  endDate: string
+): Promise<ApiResponse<ClusterAnalysis>> {
+  await delay(1200);
+  return createResponse(generateClusterAnalysis(stationIds, startDate, endDate));
+}
+
+// 获取变量相关性分析
+export async function getCorrelationAnalysis(
+  stationIds: string[],
+  startDate: string,
+  endDate: string,
+  method: 'Pearson' | 'Spearman' | 'Kendall' = 'Pearson'
+): Promise<ApiResponse<CorrelationAnalysis>> {
+  await delay(900);
+  return createResponse(generateCorrelationAnalysis(stationIds, startDate, endDate, method));
+}
+
+// 获取污染源归因分析
+export async function getSourceAttribution(
+  stationId: string,
+  timestamp: string
+): Promise<ApiResponse<SourceAttributionAnalysis>> {
+  await delay(1500);
+  return createResponse(generateSourceAttribution(stationId, timestamp));
+}
+
+// 获取长期趋势分析
+export async function getTrendAnalysis(
+  stationId: string,
+  pollutant: string,
+  startDate: string,
+  endDate: string,
+  interval: 'day' | 'week' | 'month' | 'year' = 'day'
+): Promise<ApiResponse<TrendAnalysis>> {
+  await delay(1000);
+  return createResponse(generateTrendAnalysis(stationId, pollutant, startDate, endDate, interval));
+}
+
+// 获取AQI预测（高级预测）
+export async function getAdvancedAQIPrediction(
+  stationId: string,
+  days: number = 7
+): Promise<ApiResponse<Forecast>> {
+  await delay(1800);
+  return createResponse(generateAQIPrediction(stationId, days));
 } 

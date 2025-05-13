@@ -1,36 +1,39 @@
 # 🌬️ 空气质量分析系统 (Air Quality Analytics)
 
-![版本](https://img.shields.io/badge/版本-1.0.0-blue)
-![协议](https://img.shields.io/badge/协议-MIT-green)
+[![版本](https://img.shields.io/badge/版本-1.0.0-blue.svg)](https://github.com/MilesSG/AirQualityAnalytics)
+[![协议](https://img.shields.io/badge/协议-MIT-green.svg)](https://github.com/MilesSG/AirQualityAnalytics)
 
 ## 📋 项目概述
 
-🌟 这是一个基于 React + TypeScript + Vite 开发的空气质量监测与分析系统，为用户提供实时、历史空气质量数据可视化和分析功能。
+🌟 这是一个基于 React + TypeScript + Vite 开发的空气质量监测与分析系统，为用户提供实时、历史空气质量数据可视化和分析功能。系统采用苹果设计风格，通过多维度的数据展示和分析功能，帮助用户更好地理解和监测空气质量变化。
 
 ## ✨ 核心功能
 
-- 🔍 **实时监测**：展示各监测站点的实时空气质量数据
-- 📊 **历史分析**：提供历史数据查询和多维度分析图表
-- 🗺️ **地理分布**：通过地图直观展示不同区域的空气质量状况
-- ⚠️ **告警通知**：当空气质量达到警戒水平时发出提醒
-- 📱 **响应式设计**：适配各种设备，提供良好的移动端体验
+* 🔍 **实时监测**：展示各监测站点的实时空气质量数据，包括AQI指数、PM2.5、PM10等多种污染物数据
+* 📊 **数据可视化**：多种图表直观展示空气质量数据，包括仪表盘、饼图、柱状图等
+* 📈 **大数据分析**：应用大数据分析技术，提供污染物趋势、相关性和预测分析
+* 🗺️ **地理分布**：通过地图直观展示不同区域的空气质量状况，支持中国地图区域展示
+* ⚠️ **告警通知**：当空气质量达到警戒水平时发出提醒和应对建议
+* 📱 **响应式设计**：适配各种设备，提供良好的移动端和大屏展示体验
+* 🔮 **智能预测**：基于人工智能算法的空气质量趋势预测功能
 
 ## 🛠️ 技术栈
 
-- **前端框架**: React 18
-- **开发语言**: TypeScript
-- **构建工具**: Vite
-- **UI 组件库**: Ant Design
-- **可视化**: ECharts
-- **状态管理**: React Hooks
-- **样式解决方案**: Tailwind CSS
+* **前端框架**: React 18
+* **开发语言**: TypeScript
+* **构建工具**: Vite
+* **UI 组件库**: Ant Design
+* **可视化**: ECharts, React-ECharts
+* **地图服务**: ECharts 中国地图
+* **状态管理**: React Hooks
+* **样式解决方案**: CSS Modules + 自定义样式
 
 ## 🚀 快速开始
 
 ### 环境要求
 
-- Node.js 16+
-- npm 7+ 或 yarn 1.22+
+* Node.js 16+
+* npm 7+ 或 yarn 1.22+
 
 ### 安装依赖
 
@@ -62,15 +65,13 @@ npm run build
 yarn build
 ```
 
-## 📸 项目截图
+## 📸 项目特色
 
-![image](https://github.com/user-attachments/assets/a7a3aa5d-6188-4a69-9ead-2f67d1761d00)
-
-
-![image](https://github.com/user-attachments/assets/c270600c-c15e-43cc-ac3c-84476eaa5f50)
-
-
-![image](https://github.com/user-attachments/assets/72f6b4ce-30bb-4f92-ac0b-fc2b0a526171)
+* **苹果设计风格**：整个系统采用现代化的苹果设计语言，包括圆角卡片、玻璃拟态效果和精致动画
+* **大屏展示模式**：专为数据可视化大屏设计的展示模式，支持全屏和自适应布局
+* **实时数据刷新**：支持手动和自动数据刷新机制，确保数据时效性
+* **多维度分析**：支持按时间、地区、污染物类型等多维度进行数据分析
+* **智能分析算法**：集成多种数据分析算法，包括相关性分析、趋势分析和预测模型
 
 ## 🧩 项目结构
 
@@ -83,10 +84,35 @@ air-quality-analytics/
 │   ├── layouts/       # 布局组件
 │   ├── mock/          # 模拟数据
 │   ├── pages/         # 页面组件
+│   │   ├── analysis/  # 数据分析页面
+│   │   ├── bigscreen/ # 大屏展示页面
+│   │   ├── dashboard/ # 控制台页面
+│   │   └── home/      # 首页
 │   ├── services/      # 服务层
 │   ├── types/         # TypeScript 类型定义
 │   └── utils/         # 工具函数
 ├── public/            # 公共静态资源
 └── index.html         # HTML 入口文件
 ```
+
+## 🔄 最近更新
+
+* 优化了大屏显示模式下的图表渲染
+* 修复了数据持续刷新导致的性能问题
+* 改进了AQI仪表盘显示，解决文字重叠问题
+* 添加了动态公式计算显示功能
+* 优化了空气质量概览面板的响应式布局
+* 改进了图表加载状态和空数据状态的友好展示
+
+## 📝 待办事项
+
+- [ ] 集成真实气象数据 API
+- [ ] 添加用户自定义监测站点功能
+- [ ] 开发移动端应用
+- [ ] 增加更多预测模型和分析算法
+- [ ] 支持数据导出功能
+
+## 📄 许可证
+
+本项目基于 MIT 许可证开源。
 

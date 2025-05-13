@@ -1,59 +1,118 @@
-/* 全局样式 */
+/* 全局样式 - 苹果风格 */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* CSS变量 - 苹果风格配色 */
+:root {
+  --apple-blue: #0071e3;
+  --apple-blue-dark: #0058b0;
+  --apple-gray: #f5f5f7;
+  --apple-gray-dark: #86868b;
+  --apple-black: #1d1d1f;
+  --apple-white: #ffffff;
+  --apple-border: rgba(0, 0, 0, 0.1);
+  --apple-shadow: rgba(0, 0, 0, 0.04);
+  --apple-shadow-hover: rgba(0, 0, 0, 0.07);
 }
 
 #root {
   height: 100%;
 }
 
-/* 自定义滚动条 */
+/* 苹果风格按钮 */
+.ant-btn-primary {
+  background-color: var(--apple-blue);
+  border-color: var(--apple-blue);
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px var(--apple-shadow);
+  transition: all 0.2s;
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--apple-blue-dark);
+  border-color: var(--apple-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px var(--apple-shadow-hover);
+}
+
+/* 苹果风格卡片 */
+.ant-card {
+  border-radius: 12px;
+  box-shadow: 0 1px 3px var(--apple-shadow);
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.ant-card:hover {
+  box-shadow: 0 2px 8px var(--apple-shadow-hover);
+  transform: translateY(-2px);
+}
+
+/* 自定义滚动条 - 苹果风格 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--apple-gray);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--apple-gray-dark);
   border-radius: 4px;
+  opacity: 0.5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #999;
 }
 
 /* 图表容器样式 */
 .chart-container {
   width: 100%;
   height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* 卡片内的图表内容 */
 .ant-card-body {
-  padding: 12px;
+  padding: 16px;
 }
 
 .ant-tabs-content {
   height: 100%;
 }
 
-/* 主布局样式 */
+/* 栅格调整 */
+.ant-row {
+  margin-bottom: 16px;
+}
+
+/* 主布局样式 - 苹果风格 */
 .ant-layout {
   min-height: 100vh;
+  background: var(--apple-white);
 }
 
 .ant-layout-sider {
-  background: #001529;
+  background: var(--apple-white);
+  box-shadow: 1px 0 5px var(--apple-shadow);
 }
 
 .ant-layout-sider-children {
@@ -62,67 +121,180 @@ html, body {
 }
 
 .logo {
-  color: white;
+  color: var(--apple-black);
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   margin: 16px 0;
 }
 
-.ant-menu-dark {
-  background: #001529;
+/* 菜单样式 - 苹果风格 */
+.ant-menu {
+  border-right: none;
+}
+
+.ant-menu-light .ant-menu-item-selected {
+  background-color: var(--apple-gray);
+  color: var(--apple-blue);
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.ant-menu-light .ant-menu-item:hover {
+  background-color: var(--apple-gray);
+  color: var(--apple-blue);
+  border-radius: 8px;
+}
+
+.ant-menu-light .ant-menu-item-active {
+  color: var(--apple-blue);
 }
 
 .ant-layout-header {
-  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px var(--apple-shadow);
   z-index: 1;
 }
 
 .ant-layout-content {
-  padding: 16px;
-  background: #f0f2f5;
+  padding: 24px;
+  background: #f5f5f7;
 }
 
 .ant-layout-footer {
   text-align: center;
-  padding: 12px;
-  background: white;
-  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  background: var(--apple-white);
+  color: var(--apple-gray-dark);
+  font-size: 13px;
+  box-shadow: 0 -1px 4px var(--apple-shadow);
+}
+
+/* 面包屑导航 - 苹果风格 */
+.ant-breadcrumb {
+  font-size: 14px;
+  color: var(--apple-gray-dark);
+}
+
+.ant-breadcrumb a {
+  color: var(--apple-blue);
 }
 
 /* 工具栏控件 */
 .toolbar {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
+  padding: 16px;
+  background-color: var(--apple-white);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px var(--apple-shadow);
+}
+
+/* 表单控件 - 苹果风格 */
+.ant-input, .ant-select-selector, .ant-picker {
+  border-radius: 8px !important;
+  border-color: var(--apple-border) !important;
+  transition: all 0.3s;
+}
+
+.ant-input:hover, .ant-select-selector:hover, .ant-picker:hover {
+  border-color: var(--apple-blue) !important;
+}
+
+.ant-input:focus, .ant-select-selector:focus, .ant-picker:focus {
+  border-color: var(--apple-blue) !important;
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2) !important;
+}
+
+/* 标签页样式 - 苹果风格 */
+.ant-tabs-tab {
+  font-weight: 500;
+  border-radius: 4px 4px 0 0;
+}
+
+.ant-tabs-tab-active {
+  color: var(--apple-blue) !important;
+}
+
+.ant-tabs-ink-bar {
+  background-color: var(--apple-blue) !important;
 }
 
 /* Dashboard 页面样式 */
 .dashboard .data-overview {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .dashboard .stat-card {
-  min-height: 120px;
+  min-height: 140px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dashboard .stat-card .stat-title {
+  font-size: 16px;
+  color: var(--apple-gray-dark);
+  margin-bottom: 8px;
+}
+
+.dashboard .stat-card .stat-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--apple-black);
 }
 
 /* 健康评估页面样式 */
 .health-assessment .steps-content {
-  margin-top: 16px;
-  padding: 16px;
-  background: #fafafa;
-  border: 1px dashed #e9e9e9;
-  border-radius: 2px;
+  margin-top: 24px;
+  padding: 24px;
+  background: var(--apple-white);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px var(--apple-shadow);
 }
 
 /* 地图页面样式 */
 .map-visualization {
   height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px var(--apple-shadow);
+}
+
+/* 数据分析和大屏页面样式 */
+.data-analysis-container, .bigscreen-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.data-analysis-container .analysis-header, 
+.data-analysis-container .analysis-controls,
+.data-analysis-container .analysis-metrics {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px var(--apple-shadow);
+}
+
+/* 状态标签 - 苹果风格 */
+.ant-tag {
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-weight: 500;
+  border: none;
+}
+
+/* 警告和提示 - 苹果风格 */
+.ant-alert {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 1px 2px var(--apple-shadow);
 }

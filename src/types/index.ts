@@ -97,6 +97,112 @@ export interface Forecast {
   };
 }
 
+// 数据聚类分析结果
+export interface ClusterAnalysis {
+  id: string;
+  generatedAt: string;
+  stationIds: string[];
+  timeRange: {
+    start: string;
+    end: string;
+  };
+  clusters: Array<{
+    id: number;
+    size: number;
+    centroid: {
+      aqi: number;
+      pollutants: {
+        pm25: number;
+        pm10: number;
+        o3: number;
+        no2: number;
+        so2: number;
+        co: number;
+      };
+      weather?: {
+        temperature: number;
+        humidity: number;
+        windSpeed: number;
+      };
+    };
+    characteristics: string[];
+    stations: string[];
+  }>;
+  algorithm: string;
+  parameters: Record<string, number | string>;
+  quality: {
+    silhouetteScore: number;
+    daviesBouldinIndex: number;
+  };
+}
+
+// 相关性分析结果
+export interface CorrelationAnalysis {
+  id: string;
+  generatedAt: string;
+  stationIds: string[];
+  timeRange: {
+    start: string;
+    end: string;
+  };
+  correlations: Array<{
+    variable1: string;
+    variable2: string;
+    coefficient: number;
+    pValue: number;
+    relationship: 'Strong Positive' | 'Moderate Positive' | 'Weak Positive' | 'No Correlation' | 'Weak Negative' | 'Moderate Negative' | 'Strong Negative';
+    significant: boolean;
+  }>;
+  method: 'Pearson' | 'Spearman' | 'Kendall';
+}
+
+// 污染源归因分析
+export interface SourceAttributionAnalysis {
+  id: string;
+  generatedAt: string;
+  stationId: string;
+  timestamp: string;
+  sources: Array<{
+    sourceType: string;
+    contribution: number;
+    confidence: number;
+    details?: string;
+  }>;
+  methodology: string;
+  uncertainty: number;
+}
+
+// 长期趋势分析
+export interface TrendAnalysis {
+  id: string;
+  generatedAt: string;
+  stationId: string;
+  pollutant: string;
+  timeRange: {
+    start: string;
+    end: string;
+    interval: 'day' | 'week' | 'month' | 'year';
+  };
+  trend: {
+    direction: 'increasing' | 'decreasing' | 'stable';
+    changeRate: number;
+    seasonality: boolean;
+    breakpoints: Array<{
+      timestamp: string;
+      significance: number;
+      possibleCause?: string;
+    }>;
+  };
+  dataPoints: Array<{
+    timestamp: string;
+    value: number;
+    trend: number;
+    seasonal?: number;
+    residual?: number;
+  }>;
+  methodology: string;
+}
+
 // 用户偏好设置
 export interface UserPreferences {
   dashboardLayout: string[];
